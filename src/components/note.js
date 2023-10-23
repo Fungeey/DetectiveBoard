@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import useItemBehavior from "../hooks/useitembehavior";
 import util from "../util";
 import { actions } from "../state/boardstatereducer";
+import Card from '@mui/material/Card';
 
 const colors = [
   "#feff9c",      //yellow
@@ -59,14 +60,14 @@ const Note = ({ props }) => {
 
   function renderItem(isSelected) {
     return (
-      <div className="noteItem" style={{
+      <Card className="noteItem" style={{
         ...getSize(),
         background: props.item.color,
         resize: isSelected ? "both" : "none"
       }} onDoubleClick={doubleClick} ref={noteRef}>
         {props.item.text}
         {props.debug ? <><br /><br />{props.item.uuid}</> : <></>}
-      </div>
+      </Card>
     )
   }
 

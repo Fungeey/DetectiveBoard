@@ -13,6 +13,7 @@ import Line from './line';
 import Note from './note';
 import Scrap from './scrap';
 import UI from './ui';
+import TextField from '@mui/material/TextField';
 
 const debug = false;
 
@@ -141,8 +142,8 @@ export default function Board() {
         <p style={{ position: 'absolute' }}></p>
 
         {isCreating ?
-          <input style={{ ...util.posStyle(input.pos), position: 'absolute' }} autoFocus={true} name="createTextBox" onChange={(e) => setInput({ pos: input.pos, text: e.target.value })}>
-          </input>
+          <TextField id="outlined-basic" label="Text" variant="outlined"
+          style={{ ...util.posStyle(input.pos), position: 'absolute' }} autoFocus={true} name="createTextBox" onChange={(e) => setInput({ pos: input.pos, text: e.target.value })}/>
           : <></>}
 
         {renderLines()}
